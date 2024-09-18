@@ -1,5 +1,6 @@
 from datetime import datetime, timedelta
 from argparse import ArgumentParser
+import sys
 
 def get_year_month():
     now = datetime.now()
@@ -15,6 +16,7 @@ def get_year_month():
             month = args
         else:
             print(f'{args} is neither a month number (1..12) nor a name')
+            sys.exit()
     else:
         month = now.month
     return (year, month)
