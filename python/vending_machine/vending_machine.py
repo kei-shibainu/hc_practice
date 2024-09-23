@@ -43,4 +43,4 @@ class VendingMachine:
         if item is None:
             self.__stocks.append({'juice': input_juice, 'stock': stock})
         else:
-            item['stock'] -= stock
+            item['stock'] += stock
