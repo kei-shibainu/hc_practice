@@ -17,9 +17,6 @@ class VendingMachine:
     def sales_amount(self):
         return self.__sales_amount
     
-    def availabled_purchace(self, suica, juice, stock):
-        return juice.price <= suica.credit and stock != 0
-    
     def fetch_juice(self, name):
         return next((item for item in self.__stocks if item['juice'].name == name), None)
 
