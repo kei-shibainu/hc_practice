@@ -28,9 +28,9 @@ def run():
     print(f'スイカ残高：{suica.credit}')
 
     print('-----------')
-    print('▫️サイダーを備蓄')
-    cider = Juice('サイダー', 120, 2)
-    vemding_machine.replenishment(cider)
+    print('▫️サイダーを2つ備蓄')
+    cider = Juice('サイダー', 120)
+    vemding_machine.replenishment(cider, 2)
     print(vemding_machine.stock_items())
     print('-----------')
 
