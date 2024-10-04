@@ -4,7 +4,7 @@
   email {label: "varchar(254), not null, uniq" }
   phone_number {label: "varchar(15), uniq"}
   display_name {label: "varchar(150), not null"}
-  bio {label: "varchar)"}
+  bio {label: "varchar"}
   location {label: "varchar"}
   website {label: "varchar"}
   date_of_birth {label: "datetime, not null"}
@@ -52,19 +52,19 @@
   *id {label: "bigint, not null"}
   sender_id {label: "bigint, not null, FK(users)"}
   receiver_id {label: "bigint, not null, FK(users)"}
-  message {label: "varchar(30000), not null"}
+  content {label: "varchar(30000), not null"}
   created_at { label: "datatime, not null"}
   updated_at { label: "datatime, not null"}
 
 [notifications] 
   *id {label: "bigint, not null"}
+  type {label: "bigint, not null, FK(notification_types)"}
   user_id {label: "bigint, not null, FK(users)"}
-  type {label: "bigint, not null, FK(notificationstypes)"}
-  notification_id {label: "bigint, not null"}
+  tweet_id {label: "bigint, FK(tweets)"}
   created_at { label: "datatime, not null"}
   updated_at { label: "datatime, not null"}
 
-[notificationstypes] 
+[notification_types] 
   *id {label: "bigint, not null"}
   name {label: "varchar(15), not null, uniq"}
   created_at { label: "datatime, not null"}
@@ -88,4 +88,4 @@ tweets 1--* `likes`
 tweets 1--* `retweets`
 tweets 1--* `bookmarks`
 
-notifications 1--1 notificationstypes
+notifications 1--1 notification_types
