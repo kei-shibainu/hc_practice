@@ -2,7 +2,7 @@ const { argv } = require('process');
 
 function getYearMonth() {
     const now = new Date();
-    let year = now.getFullYear();
+    const year = now.getFullYear();
     let month = now.getMonth() + 1;
 
     if (argv.length > 2 && argv[2] === '-m' && argv[3]) {
@@ -10,9 +10,8 @@ function getYearMonth() {
         if (isNaN(inputMonth) || inputMonth < 1 || inputMonth > 12) {
             console.error(`${argv[3]} is neither a month number (1..12) nor a name`);
             process.exit(1);
-        } else {
-            month = inputMonth;
         }
+        month = inputMonth;
     }
     
     return { year, month };
@@ -31,7 +30,7 @@ function printBody(year, month) {
 
     const startDay = firstDay.getDay();
 
-    let blanks = Array(startDay).fill('  ');
+    const blanks = Array(startDay).fill('  ');
 
     let days = [];
     for (let i = 1; i <= lastDay.getDate(); i++) {
@@ -40,7 +39,7 @@ function printBody(year, month) {
 
     let daysOfMonth = [...blanks, ...days];
     for (let i = 0; i < daysOfMonth.length; i += 7) {
-        let week = daysOfMonth.slice(i, i + 7).join(' ');
+        const week = daysOfMonth.slice(i, i + 7).join(' ');
         console.log(week);
     }
 }
